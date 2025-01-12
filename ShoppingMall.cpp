@@ -431,6 +431,11 @@ int Cosmeticsmain() {
     cout << "Thank you for shopping! Your total bill is: $" <<CosmeticsTotal<< endl;
     return CosmeticsTotal;
 }
+// this change by keya name hai os ka 
+
+// now see this 
+
+
 void shoesMenu() {
     cout << "Welcome to the Shoes Store\n";
     cout << "Menu:\n";
