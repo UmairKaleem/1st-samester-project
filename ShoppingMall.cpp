@@ -431,6 +431,56 @@ int Cosmeticsmain() {
     cout << "Thank you for shopping! Your total bill is: $" <<CosmeticsTotal<< endl;
     return CosmeticsTotal;
 }
+void shoesMenu() {
+    cout << "Welcome to the Shoes Store\n";
+    cout << "Menu:\n";
+    cout << "1. Sneakers ($60)\n";
+    cout << "2. Formal Shoes ($100)\n";
+    cout << "3. Boots ($150)\n";
+    cout << "4. Sandals ($20)\n";
+    cout << "5. Casual Shoes ($50)\n";
+}
+float ShoeStoremain() {
+    float ShoesTotal = 0;  // Total bill
+    int choice;     // User's choice
+    int quantity;   // Quantity of items
+    char moreItems; // Ask if the user wants to buy more
+
+    do {
+        shoesMenu();
+        bool validChoice = false; // Flag to validate user choice
+
+        // Keep asking until user enters a valid choice
+        while (!validChoice) {
+            cout << "Enter the item number you want to buy: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= 5) {
+                validChoice = true; // Valid choice
+            } else {
+                cout << "Invalid choice. Please select a valid item number.\n";
+            }
+        }
+
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+
+        // Add cost based on user choice
+        if (choice == 1)        ShoesTotal += 60 * quantity;    // Sneakers
+        else if (choice == 2)   ShoesTotal += 100 * quantity;   // Formal Shoes
+        else if (choice == 3)   ShoesTotal += 150 * quantity;   // Boots
+        else if (choice == 4)   ShoesTotal += 20 * quantity;    // Sandals
+        else if (choice == 5)   ShoesTotal += 50 * quantity;    // Casual Shoes
+
+        cout << "Current Total: $" << ShoesTotal << "\n";
+        cout << "Do you want to buy more items? (y/n): ";
+        cin >> moreItems;
+
+    } while (moreItems == 'y' || moreItems == 'Y');
+
+    cout << "Thank you for shopping! Your total bill is: $" << ShoesTotal << endl;
+    return ShoesTotal;
+}
 
 void firstFloorDetails(double &budget)
 {
