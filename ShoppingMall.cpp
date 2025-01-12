@@ -187,6 +187,83 @@ float addToTotalOfGarments(int choice, float& total)
 }
 // Khawaja Adnan make add below it shoe function
 
+[12/01/2025 11:30 am] Umair Kaleem: void groceryMenu() {
+    cout << "Welcome to Grocery Store\n";
+    cout << "Menu:\n";
+    cout << "Fruits:\n";
+    cout << "1. Apples ($3 each)\n";
+    cout << "2. Bananas ($2 each)\n";
+    cout << "3. Oranges ($3 each)\n";
+    cout << "Vegetables:\n";
+    cout << "4. Potatoes ($1 per kg)\n";
+    cout << "5. Tomatoes ($2 per kg)\n";
+    cout << "6. Carrots ($3 per kg)\n";
+    cout << "Dairy:\n";
+    cout << "7. Milk ($3 per liter)\n";
+    cout << "8. Cheese ($5 per pack)\n";
+    cout << "9. Butter ($6 per pack)\n";
+    cout << "Snacks:\n";
+    cout << "10. Chips ($3 per bag)\n";
+    cout << "11. Cookies ($4 per pack)\n";
+    cout << "Beverages:\n";
+    cout << "12. Water ($1 per bottle)\n";
+    cout << "13. Juice ($3 per bottle)\n";
+    cout << "Bakery:\n";
+    cout << "14. Bread ($2 per loaf)\n";
+    cout << "15. Croissants ($5 per pack)\n";
+}
+[12/01/2025 11:31 am] Umair Kaleem: int grocerymain() {
+    int grocerytotal = 0;  // Total bill
+    int choice;     // User's choice
+    int quantity;   // Quantity of items
+    char moreItems; // Ask if the user wants to buy more
+
+    do {
+        groceryMenu();
+        bool validChoice = false; // Flag to validate user choice
+
+        // Keep asking until user enters a valid choice
+        while (!validChoice) {
+            cout << "Enter the item number you want to buy: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= 15) {
+                validChoice = true; // Valid choice
+            } else {
+                cout << "Invalid choice. Please select a valid item number.\n";
+            }
+        }
+
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+
+        // Add cost based on user choice
+        if (choice == 1)     grocerytotal+= 3 * quantity;    // Apples
+        else if (choice == 2)grocerytotal+= 2 * quantity; // Bananas
+        else if (choice == 3)grocerytotal+= 3 * quantity; // Oranges
+        else if (choice == 4)grocerytotal+= 1 * quantity; // Potatoes
+        else if (choice == 5)grocerytotal+= 2 * quantity; // Tomatoes
+        else if (choice == 6)grocerytotal+= 3 * quantity; // Carrots
+        else if (choice == 7)grocerytotal+= 3 * quantity; // Milk
+        else if (choice == 8)grocerytotal+= 5 * quantity; // Cheese
+        else if (choice == 9)grocerytotal+= 6 * quantity; // Butter
+        else if (choice == 10)grocerytotal += 3 * quantity; // Chips
+        else if (choice == 11)grocerytotal += 4 * quantity; // Cookies
+        else if (choice == 12)grocerytotal += 1 * quantity; // Water
+        else if (choice == 13)grocerytotal += 3 * quantity; // Juice
+        else if (choice == 14)grocerytotal += 2 * quantity; // Bread
+        else if (choice == 15) grocerytotal += 5 * quantity; // Croissants
+
+        cout << "Current Total: $" << grocerytotal << "\n";
+        cout << "Do you want to buy more items? (y/n): ";
+        cin >> moreItems;
+
+    } while (moreItems == 'y' || moreItems == 'Y');
+
+    cout << "Thank you for shopping! Your total bill is: $" << grocerytotal << endl;
+    return grocerytotal;
+}
+
 
 void firstFloorDetails(double &budget)
 {
