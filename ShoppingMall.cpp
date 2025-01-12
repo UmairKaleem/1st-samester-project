@@ -2,7 +2,7 @@
 #include<cstdlib>
 #include<ctime>
 using namespace std;
-//hgkudiytgchj
+//
 // void Game()
 // {
 //     srand(time(0));
@@ -39,170 +39,317 @@ using namespace std;
 //     }
 // 	// return 0;
 // }
-void UserGuide()
- {
-                     cout<<" Parking area Basement.\n";
-                  
-                     cout<<"1st floor sections: (Play a Guess number game ro get discount on Cosmetics)\n";
-                     cout<<"                 (Garments, Shoes, Cosmestics, Grocery,Fruits ).\n";
-                  
-                     cout<<"2nd floor sections:\n";
-                     cout<<"                 (Fast foods special offer,ChyKhana, IceCream ,Grocery, Dry Fruits). \n";
-                  
-                     cout<<"3rd floor sections :\n";
-                     cout<<"                    (Children play area, Throwing Ball Game).\n";
-                  
-                     cout<<"4th floor sections;\n";
-                     cout<<"                   (Garments, Shoes, Sports Equepments ).\n";
-                  
-                     cout<<"You can Manage your calculations by entering your budget \n";
-                  
-                     cout<<"enter your budget:$ ";
-                  
- }
- 
-      void garmentsManew() {
-    cout << "                             Welcome to MTJ\n";
+#include<iostream>
+#include<cstdlib>
+#include<ctime>
+using namespace std;
 
+void UserGuide() {
+    cout << "Parking area Basement.\n";
+    cout << "1st floor sections: (Play a Guess number game to get discount on Cosmetics)\n";
+    cout << "                 (Garments, Shoes, Cosmetics, Grocery, Fruits).\n";
+    cout << "2nd floor sections:\n";
+    cout << "                 (Fast foods special offer, ChyKhana, IceCream, Grocery, Dry Fruits).\n";
+    cout << "3rd floor sections:\n";
+    cout << "                    (Children play area, Throwing Ball Game).\n";
+    cout << "4th floor sections;\n";
+    cout << "                   (Garments, Shoes, Sports Equipment).\n";
+    cout << "You can Manage your calculations by entering your budget.\n";
+    cout << "Enter your budget: $";
+}
+
+void garmentsManew() {
+    cout << "                             Welcome to MTJ\n";
     cout << "Men's Collection\n";
     cout << "   1. T-Shirts: Casual=$20, Polo=$20\n";
-    
     cout << "   2. Dress Shirts: Formal=$25, Casual=$30, Linen=$40\n";
-    
     cout << "   3. Pants: Jeans=$30, Chinos=$40, Trousers=$50\n";
-    
     cout << "   4. Suits: Dress Pants=$60, Waistcoats=$150\n";
-    
     cout << "   5. Outerwear: Jackets=$50, Coats=$70, Hoodies=$100\n";
-    
     cout << "Women's Collection\n";
     cout << "   6. Tops: Tank Tops=$15, T-Shirts=$30\n";
-    
     cout << "   7. Dresses: Casual=$40, Formal=$40, Evening Gowns=$100\n";
-    
     cout << "   8. Bottoms: Skirts=$30, Jeans=$20, Leggings=$45\n";
-    
     cout << "   9. Outerwear: Jackets=$60, Coats=$50, Cardigans=$120\n";
-    
     cout << "  10. Accessories: Hats=$10, Jewelry=$50\n";
-    
     cout << "Kid's Collection\n";
     cout << "  11. Tops: T-Shirts=$15, Shirts=$10, Sweaters=$25\n";
-    
     cout << "  12. Bottoms: Shorts=$15, Pants=$20, Skirts=$30\n";
-    
     cout << "  13. Dresses: Casual=$20, Party=$30, Formal=$50\n";
 }
+
 void addToTotal(int choice, int& total) {
     switch (choice) {
-        case 1: total += 20; break;
+        case 1: total += 20; break; // T-Shirts: Casual=$20
+        
         case 2: 
-            int shirtChoice;
-            cout << "   Choose type: 1. Formal 2. Casual 3. Linen: ";
-            cin >> shirtChoice;
-            if (shirtChoice == 1) total += 25;
-            else if (shirtChoice == 2) total += 30;
-            else if (shirtChoice == 3) total += 40;
-            break;
-        case 3: 
-            int pantsChoice;
-            cout << "   Choose type: 1. Jeans 2. Chinos 3. Trousers: ";
-            cin >> pantsChoice;
-            if (pantsChoice == 1) total += 30;
-            else if (pantsChoice == 2) total += 40;
-            else if (pantsChoice == 3) total += 50;
-            break;
-         case 4: total += 60; break; // Dress Pants
-         case 5: total += 70; break; // Coats
-         case 6: total += 15; break; // Tank Tops
-         case 7: total += 40; break; // Casual Dresses
-         case 8: total += 30; break; // Skirts
-         case 9: total += 60; break; // Jackets
-         case 10: total += 10; break; // Hats
-         case 11: total += 15; break; // T-Shirts
-         case 12: total += 15; break; // Shorts
-         case 13: total += 20; break; // Casual Kid's Dresses
-         default: cout << "Invalid choice\n"; break;
-    }
-}  
-void firstFloorDetails()
-{
-                                       cout<<"select the section where you want to go.\n";
-	                                   cout<<"1. garments\n";
-	                                   cout<<"2.Shoes\n";
-                                       cout<<"3.Cosmetics\n"; 
-	                                   cout<<"4.Grocery\n";
-                                       cout<<"5.Fruits\n";   
-	int sectionSelection;
-	cin>>sectionSelection;
-
-	switch (sectionSelection)
-	{
-	case 1: 
-	   {
-
         {
-                int total = 0;
-                int choice;
-    
-                garmentsManew();
-    
-                   cout << "Please select an item by number (0 to finish): ";
-                   cin >> choice;
-    
-                   while (choice != 0)
-                {
-                   addToTotal(choice, total);
-                   cout << "Current total: $" << total << "\n";
-                   cout << "Please select another item (0 to finish): ";
-                   cin >> choice;
-                }
-    
-           cout << "Final total: $" << total << "\n";
-    
-              // return 0;
+            int shirtChoice;
+            cout << "   Choose type: 1. Formal ($25) 2. Casual ($30) 3. Linen ($40): ";
+            cin >> shirtChoice;
+            if (shirtChoice == 1) total += 25;    // Formal Shirt
+            else if (shirtChoice == 2) total += 30; // Casual Shirt
+            else if (shirtChoice == 3) total += 40; // Linen Shirt
+            break;
         }
-		break;
-	
-	default:
-	{
-		cout<<"Wrong section choice please select from above ";
-	}
-		break;
-	}
-
-
-
-
- }
+        case 3: {
+            int pantsChoice;
+            cout << "   Choose type: 1. Jeans ($30) 2. Chinos ($40) 3. Trousers ($50): ";
+            cin >> pantsChoice;
+            if (pantsChoice == 1) total += 30;    // Jeans
+            else if (pantsChoice == 2) total += 40; // Chinos
+            else if (pantsChoice == 3) total += 50; // Trousers
+            break;
+        }
+        case 4: {
+            int suitChoice;
+            cout << "   Choose type: 1. Dress Pants ($60) 2. Waistcoat ($150): ";
+            cin >> suitChoice;
+            if (suitChoice == 1) total += 60;    // Dress Pants
+            else if (suitChoice == 2) total += 150; // Waistcoat
+            break;
+        }
+        case 5: {
+            int outerwearChoice;
+            cout << "   Choose type: 1. Jackets ($50) 2. Coats ($70) 3. Hoodies ($100): ";
+            cin >> outerwearChoice;
+            if (outerwearChoice == 1) total += 50;  // Jackets
+            else if (outerwearChoice == 2) total += 70; // Coats
+            else if (outerwearChoice == 3) total += 100; // Hoodies
+            break;
+        }
+        case 6: {
+            int womensTopChoice;
+            cout << "   Choose type: 1. Tank Tops ($15) 2. T-Shirts ($30): ";
+            cin >> womensTopChoice;
+            if (womensTopChoice == 1) total += 15;   // Tank Tops
+            else if (womensTopChoice == 2) total += 30; // T-Shirts
+            break;
+        }
+        case 7: {
+            int dressChoice;
+            cout << "   Choose type: 1. Casual ($40) 2. Formal ($40) 3. Evening Gowns ($100): ";
+            cin >> dressChoice;
+            if (dressChoice == 1) total += 40;    // Casual Dress
+            else if (dressChoice == 2) total += 40; // Formal Dress
+            else if (dressChoice == 3) total += 100; // Evening Gown
+            break;
+        }
+        case 8: {
+            int bottomChoice;
+            cout << "   Choose type: 1. Skirts ($30) 2. Jeans ($20) 3. Leggings ($45): ";
+            cin >> bottomChoice;
+            if (bottomChoice == 1) total += 30;   // Skirts
+            else if (bottomChoice == 2) total += 20; // Jeans
+            else if (bottomChoice == 3) total += 45; // Leggings
+            break;
+        }
+        case 9: {
+            int womensOuterwearChoice;
+            cout << "   Choose type: 1. Jackets ($60) 2. Coats ($50) 3. Cardigans ($120): ";
+            cin >> womensOuterwearChoice;
+            if (womensOuterwearChoice == 1) total += 60;  // Jackets
+            else if (womensOuterwearChoice == 2) total += 50; // Coats
+            else if (womensOuterwearChoice == 3) total += 120; // Cardigans
+            break;
+        }
+        case 10: {
+            int accessoryChoice;
+            cout << "   Choose type: 1. Hats ($10) 2. Jewelry ($50): ";
+            cin >> accessoryChoice;
+            if (accessoryChoice == 1) total += 10;   // Hats
+            else if (accessoryChoice == 2) total += 50; // Jewelry
+            break;
+        }
+        case 11: {
+            int kidsTopChoice;
+            cout << "   Choose type: 1. T-Shirts ($15) 2. Shirts ($10) 3. Sweaters ($25): ";
+            cin >> kidsTopChoice;
+            if (kidsTopChoice == 1) total += 15;   // T-Shirts
+            else if (kidsTopChoice == 2) total += 10; // Shirts
+            else if (kidsTopChoice == 3) total += 25; // Sweaters
+            break;
+        }
+        case 12: {
+            int bottomChoiceKid;
+            cout << "   Choose type: 1. Shorts ($15) 2. Pants ($20) 3. Skirts ($30): ";
+            cin >> bottomChoiceKid;
+            if (bottomChoiceKid == 1) total += 15;    // Shorts
+            else if (bottomChoiceKid == 2) total += 20; // Pants
+            else if (bottomChoiceKid == 3) total += 30; // Skirts
+            break;
+        }
+        case 13: {
+            int dressChoiceKid;
+            cout << "   Choose type: 1. Casual ($20) 2. Party ($30) 3. Formal ($50): ";
+            cin >> dressChoiceKid;
+            if (dressChoiceKid == 1) total += 20;    // Casual Dress
+            else if (dressChoiceKid == 2) total += 30; // Party Dress
+            else if (dressChoiceKid == 3) total += 50; // Formal Dress
+            break;
+        }
+        default: cout << "Invalid choice\n"; break;
+    }
 }
 
-int main()
 
-
-
+void firstFloorDetails(double &budget)
 {
-	double budget;
-	cout<<"Welcome To comprehensive Shopping Mall & Manage your calculations \n";
-	UserGuide();
-	cin>>budget;
-	cout<<"Select the floor (1,2,3,4):";
-	
-    int floorChoice;
-	cin>>floorChoice;
-	switch (floorChoice)
-	{
-		case 1:
-		{
-			cout<<"WellCome on the first floor";
-			firstFloorDetails();
+    cout << "Select the section where you want to go:\n";
+    cout << "1. Garments\n";
+    cout << "2. Shoes\n";
+    cout << "3. Cosmetics\n"; 
+    cout << "4. Grocery\n";
+    cout << "5. Fruits\n";   
+    int sectionSelection;
+    cin >> sectionSelection;
 
-			break;
-		}
-	
-	
-	}
+    switch (sectionSelection) {
+        case 1: {
+            int total = 0;
+            int choice;
+            garmentsManew();
+            cout << "Please select an item by number (0 to finish): ";
+            cin >> choice;
+    
+            while (choice != 0) {
+                addToTotal(choice, total);
+                cout << "Current total: $" << total << "\n";
+                cout << "Please select another item (0 to finish): ";
+                cin >> choice;
+            }
+    
+            cout << "Final total for your selection: $" << total << "\n";
+            if (total > budget) {
+                cout << "Your total exceeds your budget by $" << total - budget << ". You can't afford this.\n";
+            } else {
+                budget -= total;
+                cout << "Purchase successful! Remaining budget: $" << budget << "\n";
+            }
+            break;
+            
+        }
+        default:
+            cout << "Wrong section choice, please select from the above options.\n";
+            break;
+    }
+}
+//floor selection menu
+int floorselection_MENU() 
+                   {
+                            int floorChoice;
+                            do {
+                                cout << "Select the floor*" << endl;
+                                cout << "1. Parking Area (basement)" << endl;
+                                cout << "2. 1st floor" << endl;
+                                cout << "3. 2nd floor" << endl;
+                                cout << "4. 3rd floor" << endl;
+                                cin >> floorChoice;
 
+                                if (floorChoice < 1 || floorChoice > 4)
+                                        {
+                                            cout << "Invalid floor choice. Please select from available floors.\n";
+                                        }
+                            } 
+                            while (floorChoice < 1 || floorChoice > 4);
+
+                            cout << "You have selected floor " << floorChoice << ".\n";
+                            return floorChoice;
+                   }
+                   //aurangzeb add below this parking function.
+                   // add kar deya ab our keya kar na hai
+
+
+
+void displayMenu() {
+    cout << "****** Do you want to use parking? ******" << endl;
+    cout << "1. Yes, want to use parking." << endl;
+    cout << "2. Exit" << endl;
 }
 
+ void displayChargeConditions() {
+    cout << "\n****** Parking Charges Conditions ******" << endl;
+    cout << "1. Parking charges are free for the first 2 hours." << endl;
+    cout << "2. After 2 hours, each additional hour up to 5 hours costs $5 per hour." << endl;
+    cout << "3. After 5 hours, each additional hour costs $10 per hour." << endl;
+}
 
+float Parking_Expences() {
+    int vehicles, hours, cost, choice;
+    int totalParkingCost = 0;  // Variable to store the total cost of parking
+    while (true) {
+        displayMenu();
+        cout << "Please select an option: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            displayChargeConditions();
+            cout << "\nEnter the number of vehicles: ";
+            cin >> vehicles;
+
+            
+
+            for (int i = 1; i <= vehicles; i++) {
+                cout << "Enter hours for vehicle " << i << ": ";
+                cin >> hours;
+
+                if (hours <= 2) {
+                    cout << "Parking charges are free for vehicle " << i << "." << endl;
+                    cost = 0;
+                } else if (hours <= 5) {
+                    cost = (hours - 2) * 5;
+                    cout << "Parking charges for vehicle " << i << " are: $" << cost << "."<< endl;
+                } else {
+                    cost = (hours - 5) * 10 + (3 * 5);  // 3 hours at 5 units each
+                    cout << "Parking charges for vehicle " << i << " are: $" << cost << "." << endl;
+                }
+
+                totalParkingCost += cost;  // Add current vehicle's charge to total
+            }
+
+            cout << "\nTotal parking charges for all vehicles: $" << totalParkingCost << "." << endl;
+
+        } else if (choice == 2) {
+            cout << "Exiting the program." << endl;
+            cout<<"parking coast is: $"<<totalParkingCost<<endl;
+            break;
+        } else {
+            cout << "Invalid option. Please select again." << endl;
+        }
+    }
+
+    return totalParkingCost;
+}
+
+int  main()
+{
+        double budget;
+                       cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
+                       //calling to user guide function
+  UserGuide();
+ //input budget
+
+  cin >> budget;
+  cout << "Your budget is: $" << budget << "\n";
+  //floor selection menu
+          int selected_floor = floorselection_MENU();
+                 
+  //floor choice switch case
+   switch (selected_floor) {
+        case 1: {
+            cout << "Welcome to the basement(Parking Area).\n";
+            break;
+        }
+        case 2: {
+            cout << "Welcome to the first floor.\n";
+            firstFloorDetails(budget);
+            break;
+        }
+        default:
+            cout << "";
+            break;
+    }
+    
+
+    return 0;
+}
