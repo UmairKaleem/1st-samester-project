@@ -39,10 +39,7 @@ using namespace std;
 //     }
 // 	// return 0;
 // }
-#include<iostream>
-#include<cstdlib>
-#include<ctime>
-using namespace std;
+
 
 void UserGuide() {
     cout << "Parking area Basement.\n";
@@ -50,12 +47,7 @@ void UserGuide() {
     cout << "                 (Garments, Shoes, Cosmetics, Grocery, Fruits).\n";
     cout << "2nd floor sections:\n";
     cout << "                 (Fast foods special offer, ChyKhana, IceCream, Grocery, Dry Fruits).\n";
-    cout << "3rd floor sections:\n";
-    cout << "                    (Children play area, Throwing Ball Game).\n";
-    cout << "4th floor sections;\n";
-    cout << "                   (Garments, Shoes, Sports Equipment).\n";
-    cout << "You can Manage your calculations by entering your budget.\n";
-    cout << "Enter your budget: $";
+    
 }
 
 void garmentsManew() {
@@ -78,7 +70,8 @@ void garmentsManew() {
     cout << "  13. Dresses: Casual=$20, Party=$30, Formal=$50\n";
 }
 
-void addToTotal(int choice, int& total) {
+float addToTotalOfGarments(int choice, float& total) 
+{
     switch (choice) {
         case 1: total += 20; break; // T-Shirts: Casual=$20
         
@@ -190,7 +183,9 @@ void addToTotal(int choice, int& total) {
         }
         default: cout << "Invalid choice\n"; break;
     }
+    return total;
 }
+// Khawaja Adnan make add below it shoe function
 
 
 void firstFloorDetails(double &budget)
@@ -205,29 +200,36 @@ void firstFloorDetails(double &budget)
     cin >> sectionSelection;
 
     switch (sectionSelection) {
-        case 1: {
-            int total = 0;
+        case 1: 
+        {
+            float garmenttotal = 0;
             int choice;
             garmentsManew();
             cout << "Please select an item by number (0 to finish): ";
             cin >> choice;
     
             while (choice != 0) {
-                addToTotal(choice, total);
-                cout << "Current total: $" << total << "\n";
+                addToTotalOfGarments(choice,  garmenttotal);
+                cout << "Current total: $" <<  garmenttotal << "\n";
                 cout << "Please select another item (0 to finish): ";
                 cin >> choice;
             }
     
-            cout << "Final total for your selection: $" << total << "\n";
-            if (total > budget) {
-                cout << "Your total exceeds your budget by $" << total - budget << ". You can't afford this.\n";
+            cout << "Final total for your selection: $" << garmenttotal<< "\n";
+            if ( garmenttotal > budget) {
+                cout << "Your total exceeds your budget by $" << garmenttotal - budget << ". You can't afford this.\n";
             } else {
-                budget -= total;
+                budget -=  garmenttotal;
                 cout << "Purchase successful! Remaining budget: $" << budget << "\n";
             }
             break;
             
+        }
+        case 2:
+        {
+            cout << "Welcome to the Shoes Section.\n";
+
+            break;
         }
         default:
             cout << "Wrong section choice, please select from the above options.\n";
@@ -322,9 +324,10 @@ float Parking_Expences() {
 }
 
 int  main()
-{
+{   //variables used in main function
         double budget;
-                       cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
+
+    cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
                        //calling to user guide function
   UserGuide();
  //input budget
@@ -335,19 +338,22 @@ int  main()
           int selected_floor = floorselection_MENU();
                  
   //floor choice switch case
+
    switch (selected_floor) {
         case 1: {
             cout << "Welcome to the basement(Parking Area).\n";
-            break;
-        }
-        case 2: {
-            cout << "Welcome to the first floor.\n";
-            firstFloorDetails(budget);
+            float parkingCost = Parking_Expences();
             break;
         }
         default:
             cout << "";
             break;
+        case 2: {
+            cout << "Welcome to the first floor.\n";
+            firstFloorDetails(budget);
+            break;
+        }
+        
     }
     
 
