@@ -481,39 +481,70 @@ void firstFloorDetails(double &budget)
     }
 }
 
-int  main()
-{   //variables used in main function
-        double budget;
+
+int main() {
+    // Variables used in the main function
+    double budget;
 
     cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
-                       //calling to user guide function
-  UserGuide();
- //input budget
+    // Calling user guide function
+    UserGuide();
 
-  cin >> budget;
-  cout << "Your budget is: $" << budget << "\n";
-  //floor selection menu
-          int selected_floor = floorselection_MENU();
-                 
-  //floor choice switch case
-
-   switch (selected_floor) {
-        case 1: {
-            cout << "Welcome to the basement(Parking Area).\n";
-            float parkingCost = Parking_Expences();
-            break;
-        }
-        default:
-            cout << "";
-            break;
-        case 2: {
-            cout << "Welcome to the first floor.\n";
-            firstFloorDetails(budget);
-            break;
-        }
-        
-    }
+    // Input budget krny k liye
+    cout << "Enter your budget: $";
+    cin >> budget;
+    cout << "Your budget is: $" << budget << "\n";
     
+    int selected_floor;
+    bool continueShopping = true;
+
+    while (continueShopping) {
+        // Floor selection menu 
+        selected_floor = floorselection_MENU();
+
+        // Floor choice switch case jb yha se call hoga toh user floor select krega aur floor pr ja kr sections select krega
+        // idhar bs tootal value return hogi
+        switch (selected_floor) {
+            case 1: {
+                cout << "Welcome to the basement (Parking Area).\n";
+                float parkingCost = Parking_Expences();
+                // After parking, give the user another chance to select a floor
+                break;
+            }
+            case 2: {
+                cout << "Welcome to the first floor.\n";
+                firstFloorDetails(budget);
+                break;
+            }
+            case 3: {
+                // Handle other floors (add similar cases for other floors if necessary)
+                cout << "Welcome to the second floor.\n";
+                // Add logic for the second floor here...
+                break;
+            }
+            // case 4: {
+            //     // Handle third floor and so on...
+            //     cout << "Welcome to the third floor.\n";
+            //     // Add logic for the third floor here...
+            //     break;
+            // }
+            default:
+                cout << "Invalid floor choice. Please select from the available floors.\n";
+                break;
+        }
+
+        // After completing one round of floor activity, ask if the user wants to continue
+        char userChoice;
+        cout << "Do you want to continue shopping or exit? (y/n): ";
+        cin >> userChoice;
+        
+        if (userChoice == 'n' || userChoice == 'N') {
+            cout << "Thank you for visiting the mall. Goodbye!\n";
+            continueShopping = false;
+        }
+    }
 
     return 0;
 }
+
+
