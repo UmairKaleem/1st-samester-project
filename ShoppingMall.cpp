@@ -488,7 +488,7 @@ int  main()
     cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
                        //calling to user guide function
   UserGuide();
- //input budget
+ //This is used to input budget
 
   cin >> budget;
   cout << "Your budget is: $" << budget << "\n";
