@@ -435,6 +435,65 @@ int Cosmeticsmain() {
 
 // now see this 
 
+void restaurantMenu() {
+    cout << "\nWelcome to KHAN G Hotel B-17\n";
+    cout << "Menu:\n";
+    cout << "1. Delicious Pizza   ( $60 per item)\n";
+    cout << "2. Value Meals       ( $70 per item)\n";
+    cout << "3. Signature Burgers ( $55 per item)\n";
+    cout << "4. Crunch Boost      ( $50 per item)\n";
+    cout << "5. Lahore Broast     ( $80 per item)\n";
+    cout << "6. Broasted Biryani  ( $75 per item)\n";
+    cout << "7. Curries           ( $65 per item)\n";
+    cout << "8. Beverages         ( $15 per item)\n";
+    cout << "\n";
+}
+
+// Main function to handle orders
+int restaurantMain() {
+    int resturenttotal = 0;       // Total bill
+    int choice;          // User's choice
+    int quantity;        // Quantity of items
+    char moreItems;      // Ask if the user wants to order more
+
+    do {
+        restaurantMenu();
+        bool validChoice = false; // Flag to validate user choice
+
+        // Keep asking until user enters a valid choice
+        while (!validChoice) {
+            cout << "Enter the menu number you want to order: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= 8) {
+                validChoice = true; // Valid choice
+            } else {
+                cout << "Invalid choice. Please select a valid menu number.\n";
+            }
+        }
+
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+
+        // Add cost based on user choice
+        if (choice == 1)      resturenttotal += 600 * quantity; // Delicious Pizza
+        else if (choice == 2) resturenttotal += 700 * quantity; // Value Meals
+        else if (choice == 3) resturenttotal += 550 * quantity; // Signature Burgers
+        else if (choice == 4) resturenttotal += 500 * quantity; // Crunch Boost
+        else if (choice == 5) resturenttotal += 800 * quantity; // Lahore Broast
+        else if (choice == 6) resturenttotal += 750 * quantity; // Broasted Biryani
+        else if (choice == 7) resturenttotal += 650 * quantity; // Curries
+        else if (choice == 8) resturenttotal += 150 * quantity; // Beverages
+
+        cout << "Current Total: Rs. " <<resturenttotal << "\n";
+        cout << "Do you want to order more items? (y/n): ";
+        cin >> moreItems;
+
+    } while (moreItems == 'y' || moreItems == 'Y');
+
+    cout << "Thank you for visiting KHAN G Hotel B-17! Your total bill is: Rs. " << resturenttotal<< "\n";
+    return  resturenttotal;
+}
 
 void shoesMenu() {
     cout << "Welcome to the Shoes Store\n";
