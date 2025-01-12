@@ -177,6 +177,8 @@ void firstFloorDetails()
  }
 }
 
+edar karo key samja nahe ata keya kro 
+
 int main()
 
 
