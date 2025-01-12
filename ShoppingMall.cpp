@@ -1,4 +1,4 @@
-#include<iostream>
+ #include<iostream>
 #include<cstdlib>
 #include<ctime>
 using namespace std;
@@ -265,54 +265,7 @@ int grocerymain() {
 }
 
 
-void firstFloorDetails(double &budget)
-{
-    cout << "Select the section where you want to go:\n";
-    cout << "1. Garments\n";
-    cout << "2. Shoes\n";
-    cout << "3. Cosmetics\n"; 
-    cout << "4. Grocery\n";
-    cout << "5. Fruits\n";   
-    int sectionSelection;
-    cin >> sectionSelection;
 
-    switch (sectionSelection) {
-        case 1: 
-        {
-            float garmenttotal = 0;
-            int choice;
-            garmentsManew();
-            cout << "Please select an item by number (0 to finish): ";
-            cin >> choice;
-    
-            while (choice != 0) {
-                addToTotalOfGarments(choice,  garmenttotal);
-                cout << "Current total: $" <<  garmenttotal << "\n";
-                cout << "Please select another item (0 to finish): ";
-                cin >> choice;
-            }
-    
-            cout << "Final total for your selection: $" << garmenttotal<< "\n";
-            if ( garmenttotal > budget) {
-                cout << "Your total exceeds your budget by $" << garmenttotal - budget << ". You can't afford this.\n";
-            } else {
-                budget -=  garmenttotal;
-                cout << "Purchase successful! Remaining budget: $" << budget << "\n";
-            }
-            break;
-            
-        }
-        case 2:
-        {
-            cout << "Welcome to the Shoes Section.\n";
-
-            break;
-        }
-        default:
-            cout << "Wrong section choice, please select from the above options.\n";
-            break;
-    }
-}
 //floor selection menu
 int floorselection_MENU() 
                    {
@@ -479,6 +432,54 @@ int Cosmeticsmain() {
     return CosmeticsTotal;
 }
 
+void firstFloorDetails(double &budget)
+{
+    cout << "Select the section where you want to go:\n";
+    cout << "1. Garments\n";
+    cout << "2. Shoes\n";
+    cout << "3. Cosmetics\n"; 
+    cout << "4. Grocery\n";
+    cout << "5. Fruits\n";   
+    int sectionSelection;
+    cin >> sectionSelection;
+
+    switch (sectionSelection) {
+        case 1: 
+        {
+            float garmenttotal = 0;
+            int choice;
+            garmentsManew();
+            cout << "Please select an item by number (0 to finish): ";
+            cin >> choice;
+    
+            while (choice != 0) {
+                addToTotalOfGarments(choice,  garmenttotal);
+                cout << "Current total: $" <<  garmenttotal << "\n";
+                cout << "Please select another item (0 to finish): ";
+                cin >> choice;
+            }
+    
+            cout << "Final total for your selection: $" << garmenttotal<< "\n";
+            if ( garmenttotal > budget) {
+                cout << "Your total exceeds your budget by $" << garmenttotal - budget << ". You can't afford this.\n";
+            } else {
+                budget -=  garmenttotal;
+                cout << "Purchase successful! Remaining budget: $" << budget << "\n";
+            }
+            break;
+            
+        }
+        case 2:
+        {
+            cout << "Welcome to the Shoes Section.\n";
+
+            break;
+        }
+        default:
+            cout << "Wrong section choice, please select from the above options.\n";
+            break;
+    }
+}
 
 int  main()
 {   //variables used in main function
