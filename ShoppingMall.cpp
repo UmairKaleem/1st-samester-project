@@ -323,6 +323,86 @@ float Parking_Expences() {
     return totalParkingCost;
 }
 
+// add the cosmetics Store 
+void cosmeticsMenu() {
+    cout << "Welcome to Cosmetics Store\n";
+    cout << "Menu:\n";
+    cout << "Face Care:\n";
+    cout << "1. Face Wash ($10 each)\n";
+    cout << "2. Moisturizer ($20 each)\n";
+    cout << "3. Sunscreen ($15 each)\n";
+    cout << "Hair Care:\n";
+    cout << "4. Shampoo ($8 per bottle)\n";
+    cout << "5. Conditioner ($10 per bottle)\n";
+    cout << "6. Hair Oil ($12 per bottle)\n";
+    cout << "Makeup:\n";
+    cout << "7. Lipstick ($15 each)\n";
+    cout << "8. Foundation ($25 each)\n";
+    cout << "9. Mascara ($18 each)\n";
+    cout << "Perfumes:\n";
+    cout << "10. Body Spray ($20 per bottle)\n";
+    cout << "11. Perfume ($50 per bottle)\n";
+    cout << "Nail Care:\n";
+    cout << "12. Nail Polish ($5 per bottle)\n";
+    cout << "13. Nail Polish Remover ($8 per bottle)\n";
+    cout << "Beauty Tools:\n";
+    cout << "14. Makeup Brushes ($30 per set)\n";
+    cout << "15. Hair Straightener ($60 each)\n";
+}
+
+int Cosmeticsmain() {
+    int CosmeticsTotal = 0;  // Total bill
+    int choice;     // User's choice
+    int quantity;   // Quantity of items
+    char moreItems; // Ask if the user wants to buy more
+
+    do {
+        cosmeticsMenu();
+        bool validChoice = false; // Flag to validate user choice
+
+        // Keep asking until user enters a valid choice
+        while (!validChoice) {
+            cout << "Enter the item number you want to buy: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= 15) {
+                validChoice = true; // Valid choice
+            } else {
+                cout << "Invalid choice. Please select a valid item number.\n";
+            }
+        }
+
+        cout << "Enter the quantity: ";
+        cin >> quantity;
+
+        // Add cost based on user choice
+        if (choice == 1)        CosmeticsTotal += 10 * quantity;    // Face Wash
+        else if (choice == 2)   CosmeticsTotal += 20 * quantity; // Moisturizer
+        else if (choice == 3)   CosmeticsTotal += 15 * quantity; // Sunscreen
+        else if (choice == 4)   CosmeticsTotal += 8 * quantity;  // Shampoo
+        else if (choice == 5)   CosmeticsTotal += 10 * quantity; // Conditioner
+        else if (choice == 6)   CosmeticsTotal += 12 * quantity; // Hair Oil
+        else if (choice == 7)   CosmeticsTotal += 15 * quantity; // Lipstick
+        else if (choice == 8)   CosmeticsTotal += 25 * quantity; // Foundation
+        else if (choice == 9)   CosmeticsTotal += 18 * quantity; // Mascara
+        else if (choice == 10)  CosmeticsTotal  += 20 * quantity; // Body Spray
+        else if (choice == 11)  CosmeticsTotal  += 50 * quantity; // Perfume
+        else if (choice == 12)  CosmeticsTotal  += 5 * quantity;  // Nail Polish
+        else if (choice == 13)  CosmeticsTotal  += 8 * quantity;  // Nail Polish Remover
+        else if (choice == 14)  CosmeticsTotal  += 30 * quantity; // Makeup Brushes
+        else if (choice == 15)  CosmeticsTotal  += 60 * quantity; // Hair Straightener
+
+        cout << "Current Total: $" << CosmeticsTotal<< "\n";
+        cout << "Do you want to buy more items? (y/n): ";
+        cin >> moreItems;
+
+    } while (moreItems == 'y' || moreItems == 'Y');
+
+    cout << "Thank you for shopping! Your total bill is: $" <<CosmeticsTotal<< endl;
+    return CosmeticsTotal;
+}
+
+
 int  main()
 {   //variables used in main function
         double budget;
