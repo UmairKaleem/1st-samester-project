@@ -589,6 +589,66 @@ void firstFloorDetails(double &budget)
 //aurangzeb add below this
 
 
+void iceCreamMenu() {
+    cout << "Welcome to Ice Cream Corner\n";
+    cout << "Menu:\n";
+    cout << "1. Vanilla ($3 per scoop)\n";
+    cout << "2. Chocolate ($4 per scoop)\n";
+    cout << "3. Strawberry ($3 per scoop)\n";
+    cout << "4. Mango ($5 per scoop)\n";
+    cout << "5. Cookie Dough ($6 per scoop)\n";
+    cout << "6. Mint Chocolate ($5 per scoop)\n";
+    cout << "7. Coffee ($4 per scoop)\n";
+    cout << "8. Pistachio ($6 per scoop)\n";
+    cout << "9. Mixed Berry ($5 per scoop)\n";
+}
+float icecreamMain() {
+    int IceCreamtotal = 0;  // Total bill
+    int choice;     // User's choice
+    int quantity;   // Quantity of scoops
+    char moreItems; // Ask if the user wants to buy more
+
+    do {
+        iceCreamMenu();
+        bool validChoice = false; // Flag to validate user choice
+
+        // Keep asking until user enters a valid choice
+        while (!validChoice) {
+            cout << "Enter the flavor number you want to buy: ";
+            cin >> choice;
+
+            if (choice >= 1 && choice <= 9) {
+                validChoice = true; // Valid choice
+            } else {
+                cout << "Invalid choice. Please select a valid flavor number.\n";
+            }
+        }
+
+        cout << "Enter the quantity (number of scoops): ";
+        cin >> quantity;
+
+        // Add cost based on user choice
+        if (choice == 1)      IceCreamtotal += 3 * quantity;    // Vanilla
+        else if (choice == 2) IceCreamtotal += 4 * quantity; // Chocolate
+        else if (choice == 3) IceCreamtotal += 3 * quantity; // Strawberry
+        else if (choice == 4) IceCreamtotal += 5 * quantity; // Mango
+        else if (choice == 5) IceCreamtotal += 6 * quantity; // Cookie Dough
+        else if (choice == 6) IceCreamtotal += 5 * quantity; // Mint Chocolate
+        else if (choice == 7) IceCreamtotal += 4 * quantity; // Coffee
+        else if (choice == 8) IceCreamtotal += 6 * quantity; // Pistachio
+        else if (choice == 9) IceCreamtotal += 5 * quantity; // Mixed Berry
+
+        cout << "Current Total: $" << IceCreamtotal << "\n";
+        cout << "Do you want to buy more flavors? (y/n): ";
+        cin >> moreItems;
+
+    } while (moreItems == 'y' || moreItems == 'Y');
+
+    cout << "Thank you for visiting Ice Cream Corner! Your total bill is: $" << IceCreamtotal << endl;
+    return IceCreamtotal;
+}
+
+
 //adnan add below this
 
 
