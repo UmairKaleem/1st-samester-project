@@ -187,7 +187,7 @@ float addToTotalOfGarments(int choice, float& total)
 }
 // Khawaja Adnan make add below it shoe function
 
-[12/01/2025 11:30 am] Umair Kaleem: void groceryMenu() {
+ void groceryMenu() {
     cout << "Welcome to Grocery Store\n";
     cout << "Menu:\n";
     cout << "Fruits:\n";
@@ -212,7 +212,7 @@ float addToTotalOfGarments(int choice, float& total)
     cout << "14. Bread ($2 per loaf)\n";
     cout << "15. Croissants ($5 per pack)\n";
 }
-[12/01/2025 11:31 am] Umair Kaleem: int grocerymain() {
+int grocerymain() {
     int grocerytotal = 0;  // Total bill
     int choice;     // User's choice
     int quantity;   // Quantity of items
