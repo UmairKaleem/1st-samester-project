@@ -44,11 +44,12 @@ using namespace std;
     double total = 0;
 
 void UserGuide() {
-    cout << "Parking area Basement.\n"<<endl;
+    cout << "Basement.\n"<<endl;
+    cout<<"                    (Parking Area)\n";
     cout << "1st floor sections: "<<endl;
-    cout << "                 (Garments, Shoes, Cosmetics, Grocery, Fruits).\n"<<endl;
+    cout << "                 (Garments, Shoes, Cosmetics, Grocery).\n"<<endl;
     cout << "2nd floor sections:\n";
-    cout << "                 (Fast foods special offer, ChyKhana, IceCream, Grocery, Dry Fruits).\n";
+    cout << "                 (Fast foods , IceCream).\n";
     cout<<"                         (Play a Guess number game to get discount on your shopping)\n";
     
 }
@@ -280,7 +281,6 @@ int floorselection_MENU()
                                 cout << "1. Parking Area (basement)" << endl;
                                 cout << "2. 1st floor" << endl;
                                 cout << "3. 2nd floor" << endl;
-                                cout << "4. 3rd floor" << endl;
                                 cin >> floorChoice;
 
                                 if (floorChoice < 1 || floorChoice > 4)
@@ -562,10 +562,10 @@ float firstFloorDetails(double total, double &budget) {
     cout << "3. Cosmetics\n"; 
     cout << "4. Grocery\n";
     
-    int sectionSelection;
-    cin >> sectionSelection;
+    int sectionSelectionfirstfloor;
+    cin >> sectionSelectionfirstfloor;
 
-    switch (sectionSelection) {
+    switch (sectionSelectionfirstfloor) {
         case 1: {
             int choice;
             garmentsManew();
@@ -659,7 +659,7 @@ float icecreamMain() {
     char moreItems; // Ask if the user wants to buy more
 
     do {
-        iceCreamMenu();
+        iceCreamMenu(); 
         bool validChoice = false; // Flag to validate user choice
 
         // Keep asking until user enters a valid choice
@@ -699,6 +699,62 @@ float icecreamMain() {
 }
 
   
+float SecondFloorDetails(double total, double &budget)
+{
+    float secondFloorDetailstotal = 0; // Initialize to 0 at the start
+    float total1 = 0, total2 = 0;     // Initialize section totals
+
+    int sectionSelectionsecondfloor;
+
+    cout << "Select the section where you want to go:\n";
+    cout << "1. Restaurant & FastFoods\n";
+    cout << "2. IceCream\n";
+    
+    cin >> sectionSelectionsecondfloor;
+
+    switch (sectionSelectionsecondfloor)
+    {
+        case 1:
+        {
+            cout << "Welcome to the Restaurant & Fast Foods.\n";
+            int restaurantTotal = restaurantMain();  // Get the total from restaurantMain function
+            cout << "Final total for your selection: $" << restaurantTotal << "\n";
+            if (restaurantTotal > budget) {
+                cout << "Your total exceeds your budget by $" << restaurantTotal - budget << ". You can't afford this.\n";
+            } else {
+                budget -= restaurantTotal;
+                total1 = restaurantTotal; // Assign to total1 (similarly to how total2 was assigned in case 2)
+                cout << "Purchase successful! Remaining budget: $" << budget << "\n";
+            }
+            break;
+        }
+        case 2:
+        {
+            cout << "Welcome to the Ice Cream Corner.\n";
+            float iceCreamTotal = icecreamMain(); // Get the total from icecreamMain function
+            cout << "Final total for your selection: $" << iceCreamTotal << "\n";
+            if (iceCreamTotal > budget) {
+                cout << "Your total exceeds your budget by $" << iceCreamTotal - budget << ". You can't afford this.\n";
+            } else {
+                budget -= iceCreamTotal;
+                total2 = iceCreamTotal; // Assign to total2
+                cout << "Purchase successful! Remaining budget: $" << budget << "\n";
+            }
+            break;
+        }
+        default:
+            cout << "Wrong section choice, please select from the above options.\n";
+            break;
+    }
+
+    // Add both section totals to get the total for the second floor
+    secondFloorDetailstotal = total1 + total2;
+
+    // Return the total for the second floor
+    return secondFloorDetailstotal;
+}
+
+
 
 
 
@@ -712,8 +768,10 @@ int main() {
     // Variables used in the main function
     // double budget;
     // double total = 0;
+    cout << "*******************Welcome to Shopping Mall*********\n";
 
-    cout << "*Welcome To Comprehensive Shopping Mall! Manage your calculations*\n";
+    cout << "****************Comprehensive Shopping Mall & Manage your calculations*********\n";
+
     
 
     // Calling user guide function
@@ -756,7 +814,7 @@ int main() {
             }   
             case 3: {
                 cout << "Welcome to the second floor.\n";
-                float secondFloortotal=restaurantMain();
+                float secondFloortotal=SecondFloorDetails(total,budget);;
                 cout << "Second floor total: $" << secondFloortotal << endl;
                 break;
             }         
