@@ -456,7 +456,7 @@ void restaurantMenu() {
 }
 
 // Main function to handle orders
-int restaurantMain() {
+float restaurantMain() {
     int resturenttotal = 0;       // Total bill
     int choice;          // User's choice
     int quantity;        // Quantity of items
@@ -639,116 +639,6 @@ float firstFloorDetails(double total, double &budget) {
     return firstFloorDetailstotal;
 }
 
-// float firstFloorDetails(double total,double &budget)
-// {
-
-// float garmenttotal = total;
-// float firstFloorDetailstotal;
-// float total1;
-// float total2;
-// float total3;
-// float total4;
-
-//     cout << "Select the section where you want to go:\n";
-//     cout << "1. Garments\n";
-//     cout << "2. Shoes\n";
-//     cout << "3. Cosmetics\n"; 
-//     cout << "4. Grocery\n";
-    
-//     int sectionSelection;
-//     cin >> sectionSelection;
-
-//     switch (sectionSelection) 
-//     {
-//         case 1: 
-//         {
-            
-//             int choice;
-//             garmentsManew();
-//             cout << "Please select an item by number (0 to finish): ";
-//             cin >> choice;
-    
-//             while (choice != 0){ {
-//                 addToTotalOfGarments(choice, garmenttotal);
-//                 cout << "Current total: $" << garmenttotal << "\n";
-//                 cout << "Please select another item (0 to finish): ";
-//                 cin >> choice;
-//             }
-    
-//             cout << "Final total for your selection: $" << garmenttotal << "\n";
-//             if (garmenttotal > budget) {
-//                 cout << "Your total exceeds your budget by $" << garmenttotal - budget << ". You can't afford this.\n";
-//             } else {
-//                 budget -= garmenttotal;
-//            float     total1 = total+ garmenttotal;
-//                 cout << "Purchase successful! Remaining budget: $" << budget << "\n";
-//             }
-//             break;
-//         }
-//         case 2:
-//         {
-//             cout << "Welcome to the Shoes Section.\n";
-//             float shoeTotal = ShoeStoremain();
-//             cout << "Final total for your selection: $" << shoeTotal << "\n";
-//             if (shoeTotal > budget) {
-//                 cout << "Your total exceeds your budget by $" << shoeTotal - budget << ". You can't afford this.\n";
-//             } else {
-//                 budget -= shoeTotal;
-//             float    total2 =total+ shoeTotal;
-//                 cout << "Purchase successful! Remaining budget: $" << budget << "\n";
-//             }
-//             break;
-//         }
-        
-//         case 3:
-//         {
-//             cout << "Welcome to the Cosmetics Section.\n";
-//             float cosmeticsTotal = Cosmeticsmain();
-//             cout << "Final total for your selection: $" << cosmeticsTotal << "\n";
-//             if (cosmeticsTotal > budget) {
-//                 cout << "Your total exceeds your budget by $" << cosmeticsTotal - budget << ". You can't afford this.\n";
-//             } else {
-//                 budget -= cosmeticsTotal;
-//        float          total3 =total+ cosmeticsTotal;
-//                 cout << "Purchase successful! Remaining budget: $" << budget << "\n";
-//             }
-//             break;
-//         }
-//         case 4:
-//         {
-//             cout << "*****Welcome to the Grocery Section***********.\n";
-//             float groceryTotal = grocerymain();
-//             cout << "Final total for your selection: $" << groceryTotal << "\n";
-//             if (groceryTotal > budget) {
-//                 cout << "Your total exceeds your budget by $" << groceryTotal - budget << ". You can't afford this.\n";
-//             } else {
-//                 budget -= groceryTotal;
-//         float        total4 = total+groceryTotal;
-//                 cout << "Purchase successful! Remaining budget: $" << budget << "\n";
-
-//             }
-//             break;
-//         }
-
-//         default:
-//             cout << "Wrong section choice, please select from the above options.\n";
-//             break;
-//             }
-//     }
-
-//    float firstFloorDetailstotal= total1+total2+total3+total4;
-
-//     return firstFloorDetailstotal;
-   
-// }
-
-
-
-
-//***********Secod floor details***************
-//aurangzeb add below this
-
-
 void iceCreamMenu() {
     cout << "Welcome to Ice Cream Corner\n";
     cout << "Menu:\n";
@@ -763,7 +653,7 @@ void iceCreamMenu() {
     cout << "9. Mixed Berry ($5 per scoop)\n";
 }
 float icecreamMain() {
-    int IceCreamtotal = 0;  // Total bill
+    float IceCreamtotal = 0;  // Total bill
     int choice;     // User's choice
     int quantity;   // Quantity of scoops
     char moreItems; // Ask if the user wants to buy more
@@ -808,8 +698,13 @@ float icecreamMain() {
     return IceCreamtotal;
 }
 
+  
 
-//adnan add below this
+
+
+
+
+
 
 
 
@@ -830,6 +725,7 @@ int main() {
 
 
     // Input budget krny k liye
+
     cout << "Enter your budget: $";
     cin >> budget;
     cout << "Your budget is: $" << budget << "\n";
@@ -854,18 +750,20 @@ int main() {
             }
             case 2: {
                 cout << "Welcome to the first floor.\n";
-                firstFloorDetails(total,budget);
+                float firstFloortotal=firstFloorDetails(total,budget);
                 break;
-            }            
+                cout << "First floor total: $" << firstFloortotal << endl;
+            }   
+            case 3: {
+                cout << "Welcome to the second floor.\n";
+                float secondFloortotal=restaurantMain();
+                cout << "Second floor total: $" << secondFloortotal << endl;
+                break;
+            }         
             default:
                 cout << "Invalid floor choice. Please select from the available floors.\n";
                 break;
         }
-
-
-
-
-
         
         // After completing one round of floor activity, ask if the user wants to continue
         char userChoice;
