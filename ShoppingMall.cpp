@@ -1,4 +1,4 @@
- #include<iostream>
+#include<iostream>
 #include<cstdlib>
 #include<ctime>
 using namespace std;
@@ -758,32 +758,17 @@ float SecondFloorDetails(double total, double &budget)
 
 
 
-
-
-
-
-
-
 int main() {
     // Variables used in the main function
-    // double budget;
-    // double total = 0;
-    cout << "*******************Welcome to Shopping Mall*********\n";
-
-    cout << "****************Comprehensive Shopping Mall & Manage your calculations*********\n";
-
-    
+    double budget;
+    double total = 0; // Total amount spent
+    cout << "******************* Welcome to Shopping Mall *********\n";
+    cout << "**************** Comprehensive Shopping Mall & Manage your calculations *********\n";
 
     // Calling user guide function
     UserGuide();
 
-                       //calling to user guide function
-  
- 
-
-
-    // Input budget krny k liye
-
+    // Input budget for the user
     cout << "Enter your budget: $";
     cin >> budget;
     cout << "Your budget is: $" << budget << "\n";
@@ -791,33 +776,35 @@ int main() {
     int selected_floor;
     bool continueShopping = true;
 
-    while (continueShopping) 
-    {
-        // Floor selection menu 
+    while (continueShopping) {
+        // Floor selection menu
         selected_floor = floorselection_MENU();
 
-        
         switch (selected_floor) {
             case 1: {
                 cout << "Welcome to the basement (Parking Area).\n";
                 float parkingtotal = Parking_Expences(budget);
+                total += parkingtotal;  // Accumulate parking expenses
                 cout << "Parking charges: $" << parkingtotal << endl;
-                // After parking, give the user another chance to select a floor
-                
+                cout<<"**************************************************************"<<endl;
                 break;
             }
             case 2: {
                 cout << "Welcome to the first floor.\n";
-                float firstFloortotal=firstFloorDetails(total,budget);
-                break;
+                float firstFloortotal = firstFloorDetails(total, budget);
+                total += firstFloortotal;  // Accumulate first floor expenses
                 cout << "First floor total: $" << firstFloortotal << endl;
-            }   
+                cout<<"**************************************************************"<<endl;
+                break;
+            }
             case 3: {
                 cout << "Welcome to the second floor.\n";
-                float secondFloortotal=SecondFloorDetails(total,budget);;
+                float secondFloortotal = SecondFloorDetails(total, budget);
+                total += secondFloortotal;  // Accumulate second floor expenses
                 cout << "Second floor total: $" << secondFloortotal << endl;
+                cout<<"**************************************************************"<<endl;
                 break;
-            }         
+            }
             default:
                 cout << "Invalid floor choice. Please select from the available floors.\n";
                 break;
@@ -834,7 +821,16 @@ int main() {
         }
     }
 
+    // Display the total expenditure at the end
+    cout << "Your total expenditure is: $" << total << endl;
+
     return 0;
 }
+
+
+
+
+
+
 
 
