@@ -1,9 +1,11 @@
-#include<iostream>
-#include<cstdlib>
-#include<ctime>
+   
+
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
-
-
 
 
 
@@ -725,6 +727,38 @@ float SecondFloorDetails(double total, double &budget)
 
 
 
+
+
+
+// Function to write budget and total expenditure to a file
+void writeToFile(double budget, double total) {
+    ofstream file("shopping_data.txt", ios::app);  // Open file in append mode
+    if (file.is_open()) {
+        file << "Budget: $" << budget << "\n";
+        file << "Total expenditure: $" << total << "\n";
+        file << "**************************\n";
+        file.close();
+    } else {
+        cout << "Unable to open file.\n";
+    }
+}
+
+// Function to read and display data from the file
+void readFromFile() {
+    ifstream file("shopping_data.txt");
+    string line;
+
+    if (file.is_open()) {
+        cout << "Previous shopping records:\n";
+        while (getline(file, line)) {
+            cout << line << endl;
+        }
+        file.close();
+    } else {
+        cout << "Unable to open file.\n";
+    }
+}
+
 int main() {
     double budget;
     double total = 0; // Total amount spent
@@ -746,8 +780,7 @@ int main() {
         // Floor selection menu
         selected_floor = floorselection_MENU();
 
-        switch (selected_floor) 
-        {
+        switch (selected_floor) {
             case 1: {
                 cout << "Welcome to the basement (Parking Area).\n";
                 float parkingtotal = Parking_Expences(budget);
@@ -788,6 +821,7 @@ int main() {
         }
     }
 
+    // Display and apply a discount if the user wants to play the game
     char game_choice;
     cout << "Do you want to play a game to get a discount (y/n)? ";
     cin >> game_choice;
@@ -821,6 +855,18 @@ int main() {
 
     // Display the total expenditure at the end
     cout << "Your total expenditure is: $" << total << endl;
+
+    // Write shopping data to file
+    writeToFile(budget, total);
+
+    // Ask if the user wants to view previous shopping records
+    char viewChoice;
+    cout << "Do you want to view your previous shopping records? (y/n): ";
+    cin >> viewChoice;
+
+    if (viewChoice == 'y' || viewChoice == 'Y') {
+        readFromFile();
+    }
 
     return 0;
 }
