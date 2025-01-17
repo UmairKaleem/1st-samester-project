@@ -2,43 +2,11 @@
 #include<cstdlib>
 #include<ctime>
 using namespace std;
-//
-// void Game()
-// {
-//     srand(time(0));
-// 	int secretNumber= rand()%20+1;
-// 	int guess;
-	
-// 	cout<<"Guess the number between 1 and 20 To get 15% discount on your purchase (0r enter to quite)\n";
-// 	for(int i=1;i<=5;i++)
-//    {
-// 		cin>>guess;
-	
-// 	 if (guess==-1)
-// 	                 {
-// 	                 	cout<<"You chose to quite. Goodby!\n";
-//                       break;
-// 	                 }
-// 	else if (guess==secretNumber)
-// 	                {
-// 	                	cout<<"congratulations you will get 15% discount on your purchase .\n";
-// 	                	break;
-// 	                }
-// 	else if(guess<secretNumber)
-// 	                {
-// 	                	cout<<"Too low ! try again :";
-// 	                }
-// 	 else if(guess>secretNumber)
-// 	                {
-// 	                	cout<<"Too high ! try again:";
-// 	                }
-// 	else
-// 	                 {
-// 	                 	cout<<"you missed the chance !";
-// 	                 }
-//     }
-// 	// return 0;
-// }
+
+
+
+
+
 
     double budget;
     double total = 0;
@@ -757,9 +725,7 @@ float SecondFloorDetails(double total, double &budget)
 
 
 
-
 int main() {
-    // Variables used in the main function
     double budget;
     double total = 0; // Total amount spent
     cout << "******************* Welcome to Shopping Mall *********\n";
@@ -780,13 +746,14 @@ int main() {
         // Floor selection menu
         selected_floor = floorselection_MENU();
 
-        switch (selected_floor) {
+        switch (selected_floor) 
+        {
             case 1: {
                 cout << "Welcome to the basement (Parking Area).\n";
                 float parkingtotal = Parking_Expences(budget);
                 total += parkingtotal;  // Accumulate parking expenses
                 cout << "Parking charges: $" << parkingtotal << endl;
-                cout<<"**************************************************************"<<endl;
+                cout << "**************************************************************\n";
                 break;
             }
             case 2: {
@@ -794,7 +761,7 @@ int main() {
                 float firstFloortotal = firstFloorDetails(total, budget);
                 total += firstFloortotal;  // Accumulate first floor expenses
                 cout << "First floor total: $" << firstFloortotal << endl;
-                cout<<"**************************************************************"<<endl;
+                cout << "**************************************************************\n";
                 break;
             }
             case 3: {
@@ -802,22 +769,53 @@ int main() {
                 float secondFloortotal = SecondFloorDetails(total, budget);
                 total += secondFloortotal;  // Accumulate second floor expenses
                 cout << "Second floor total: $" << secondFloortotal << endl;
-                cout<<"**************************************************************"<<endl;
+                cout << "**************************************************************\n";
                 break;
             }
             default:
                 cout << "Invalid floor choice. Please select from the available floors.\n";
                 break;
         }
-        
+
         // After completing one round of floor activity, ask if the user wants to continue
         char userChoice;
         cout << "Do you want to continue shopping or exit? (y/n): ";
         cin >> userChoice;
-        
+
         if (userChoice == 'n' || userChoice == 'N') {
             cout << "Thank you for visiting the mall. Goodbye!\n";
             continueShopping = false;
+        }
+    }
+
+    char game_choice;
+    cout << "Do you want to play a game to get a discount (y/n)? ";
+    cin >> game_choice;
+
+    if (game_choice == 'n' || game_choice == 'N') {
+        cout << "No discount applied. Thank you for shopping!\n";
+    } else {
+        srand(time(0));
+        int secretNumber = rand() % 20 + 1;
+        int guess;
+        
+        cout << "Guess the number between 1 and 20 to get a 15% discount on your purchase (or enter -1 to quit):\n";
+        
+        for (int i = 1; i <= 5; i++) {
+            cin >> guess;
+
+            if (guess == -1) {
+                cout << "You chose to quit. Goodbye!\n";
+                break;
+            } else if (guess == secretNumber) {
+                cout << "Congratulations! You will get a 15% discount on your purchase.\n";
+                total -= total * 0.15;  // Apply 15% discount
+                break;
+            } else if (guess < secretNumber) {
+                cout << "Too low! Try again: ";
+            } else if (guess > secretNumber) {
+                cout << "Too high! Try again: ";
+            }
         }
     }
 
@@ -831,6 +829,9 @@ int main() {
 
 
 
+
+
+ 
 
 
 
